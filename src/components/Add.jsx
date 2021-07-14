@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import ResultCard from "./ResultCard";
 
 const Add = () => {
 	const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
@@ -25,6 +26,8 @@ const Add = () => {
 				.catch((error) => {
 					setResults([]);
 				});
+		} else {
+			setResults([]);
 		}
 	}, [query, API_KEY]);
 
@@ -40,13 +43,10 @@ const Add = () => {
 							onChange={handleChange}
 						/>
 					</div>
-					{results.length > 0 && (
-						<ul>
-							{results.map((result) => (
-								<li>{result.title}</li>
-							))}
-						</ul>
-					)}
+					{results.length > 0 &&
+						results.map((result) => (
+							<ResultCard key={result.id} result={result} />
+						))}
 				</div>
 			</div>
 		</div>

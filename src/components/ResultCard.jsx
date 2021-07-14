@@ -1,0 +1,49 @@
+import React from "react";
+
+const ResultCard = ({ result }) => {
+	const resultTitle = () => {
+		if (result.title) {
+			return result.title;
+		} else {
+			return result.name;
+		}
+	};
+
+	const resultDate = () => {
+		if (result.release_date) {
+			return result.release_date;
+		} else if (result.first_air_date) {
+			return result.first_air_date;
+		} else {
+			return "-";
+		}
+	};
+
+	const title = resultTitle();
+	const airDate = resultDate();
+	const mediaType = result.media_type;
+
+	return (
+		<div className="result-card">
+			<div className="poster-wrapper">
+				{result.poster_path ? (
+					<img
+						src={`https://image.tmdb.org/t/p/w200${result.poster_path}`}
+						alt={`${title} Poster`}
+					/>
+				) : (
+					<div className="filler-poster">{`${title} Poster`}</div>
+				)}
+			</div>
+			<div className="info">
+				<div className="header">
+					<h3 className="title">{title}</h3>
+					<h4 className="release-date">{airDate.substring(0, 4)}</h4>
+					<h4 className="release-date">{mediaType}</h4>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default ResultCard;
