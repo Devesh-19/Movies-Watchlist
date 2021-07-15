@@ -4,6 +4,7 @@ body {
 	font-family: "Noto Sans JP", sans-serif;
 	padding: 0;
 	margin: 0;
+	background-color: seashell;
 }
 
 .container {
@@ -49,6 +50,12 @@ body {
 	}
 }
 
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
 .btn {
 	padding: 8px 10px;
 	background-color: moccasin;
@@ -63,7 +70,7 @@ body {
 }
 
 .btn:hover {
-	background-color: white;
+	background-color: springgreen;
 	color: black;
 	opacity: 1 !important;
 	cursor: pointer;
@@ -73,6 +80,12 @@ body {
 	pointer-events: none;
 	opacity: 0.5;
 }
+
+input:focus {
+	outline: none;
+}
+
+/* Header Styles */
 
 header {
 	background-color: midnightblue;
@@ -115,4 +128,79 @@ header .nav-links {
 
 .nav-links a:hover {
 	opacity: 0.7;
+}
+
+/* Add Page */
+.add-content {
+	padding: 50px 15px;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.add-content .input-wrapper {
+	overflow: inherit;
+}
+
+.add-content .input-wrapper input {
+	width: 100%;
+	background-color: midnightblue;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	color: white;
+	font-size: 1.25rem;
+}
+
+.results {
+	padding: 0;
+	margin: 0;
+	margin-top: 30px;
+}
+
+.result-card {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.result-card .poster-wrapper img,
+.filler-poster {
+	width: 75px;
+	height: 113px;
+	background-color: #dbdada;
+	border-radius: 5px;
+	margin-right: 20px;
+	display: block;
+}
+
+.result-card .info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.result-card .info .title {
+	font-size: 16px;
+	color: midnightblue;
+	font-weight: 600;
+	margin: 0;
+}
+
+.result-details {
+	display: flex;
+	margin-top: 10px;
+}
+
+.result-card .info .result-details * {
+	font-size: 16px;
+	font-weight: 300;
+	color: midnightblue;
+	margin: 0;
+}
+
+.result-type {
+	text-transform: uppercase;
+}
+
+.result-card .controls button {
+	margin-right: 10px;
 }

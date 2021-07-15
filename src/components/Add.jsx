@@ -43,10 +43,20 @@ const Add = () => {
 							onChange={handleChange}
 						/>
 					</div>
-					{results.length > 0 &&
-						results.map((result) => (
-							<ResultCard key={result.id} result={result} />
-						))}
+					{results.length > 0 && (
+						<div className="results">
+							{results.map(
+								(result) =>
+									(result.media_type === "movie" ||
+										result.media_type === "tv") && (
+										<ResultCard
+											key={result.id}
+											result={result}
+										/>
+									)
+							)}
+						</div>
+					)}
 				</div>
 			</div>
 		</div>

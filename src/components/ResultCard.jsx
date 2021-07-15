@@ -32,14 +32,24 @@ const ResultCard = ({ result }) => {
 						alt={`${title} Poster`}
 					/>
 				) : (
-					<div className="filler-poster">{`${title} Poster`}</div>
+					<div className="filler-poster">
+						{/* {`${title} Poster`} */}
+					</div>
 				)}
 			</div>
 			<div className="info">
 				<div className="header">
 					<h3 className="title">{title}</h3>
-					<h4 className="release-date">{airDate.substring(0, 4)}</h4>
-					<h4 className="release-date">{mediaType}</h4>
+					<div className="result-details">
+						<h4 className="release-date">
+							{airDate.substring(0, 4)}▪
+							<span className="result-type">{mediaType}</span>
+						</h4>
+					</div>
+				</div>
+
+				<div className="controls">
+					<button className="btn">Add to Watchlist</button>
 				</div>
 			</div>
 		</div>
