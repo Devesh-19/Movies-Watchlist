@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 const ResultCard = ({ result }) => {
-	const { addMediaToWatchlist } = useContext(GlobalContext);
+	const { addMediaToWatchlist, watchlist } = useContext(GlobalContext);
+
+	const storedMedia = watchlist.find((media) => media.id === result.id);
+
+	const watchlistDisabled = storedMedia ? true : false;
 
 	const resultTitle = () => {
 		if (result.title) {
@@ -51,6 +55,7 @@ const ResultCard = ({ result }) => {
 
 				<div className="controls">
 					<button
+						disabled={watchlistDisabled}
 						className="btn"
 						onClick={() => addMediaToWatchlist(result)}>
 						Add to Watchlist
