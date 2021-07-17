@@ -1,5 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
 
+/* Scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgb(126, 83, 83);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(179, 118, 118);
+}
+
+html {
+	overflow: -moz-scrollbars-vertical;
+	overflow-y: scroll;
+}
+
 body {
 	font-family: "Noto Sans JP", sans-serif;
 	padding: 0;
@@ -201,6 +228,7 @@ header .nav-links {
 	text-transform: uppercase;
 }
 
-.result-card .controls button {
+.result-card .controls .btn {
 	margin-right: 10px;
+	text-transform: uppercase;
 }

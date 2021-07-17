@@ -21,7 +21,6 @@ const Add = () => {
 				)
 				.then((res) => {
 					setResults(res.data.results);
-					console.log(results);
 				})
 				.catch((error) => {
 					setResults([]);

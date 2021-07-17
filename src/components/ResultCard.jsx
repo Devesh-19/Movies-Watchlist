@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 const ResultCard = ({ result }) => {
+	const { addMediaToWatchlist } = useContext(GlobalContext);
+
 	const resultTitle = () => {
 		if (result.title) {
 			return result.title;
@@ -32,9 +35,7 @@ const ResultCard = ({ result }) => {
 						alt={`${title} Poster`}
 					/>
 				) : (
-					<div className="filler-poster">
-						{/* {`${title} Poster`} */}
-					</div>
+					<div className="filler-poster" />
 				)}
 			</div>
 			<div className="info">
@@ -49,7 +50,11 @@ const ResultCard = ({ result }) => {
 				</div>
 
 				<div className="controls">
-					<button className="btn">Add to Watchlist</button>
+					<button
+						className="btn"
+						onClick={() => addMediaToWatchlist(result)}>
+						Add to Watchlist
+					</button>
 				</div>
 			</div>
 		</div>
