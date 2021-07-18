@@ -2,8 +2,9 @@ import React, { createContext, useEffect, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
 // ACTION TYPE
-export const Action = {
+export const Actions = {
 	addMediaToWatchlist: "ADD_MEDIA_TO_WATCHLIST",
+	removeMediaFromWatchlist: "REMOVE_MEDIA_FROM_WATCHLIST",
 };
 
 // Initial state
@@ -30,7 +31,11 @@ export const GlobalProvider = (props) => {
 
 	// actions
 	const addMediaToWatchlist = (media) => {
-		dispatch({ type: Action.addMediaToWatchlist, payload: media });
+		dispatch({ type: Actions.addMediaToWatchlist, payload: media });
+	};
+
+	const removeMediaFromWatchlist = (id) => {
+		dispatch({ type: Actions.removeMediaFromWatchlist, payload: id });
 	};
 
 	return (
@@ -39,6 +44,7 @@ export const GlobalProvider = (props) => {
 				watchlist: state.watchlist,
 				watched: state.watched,
 				addMediaToWatchlist,
+				removeMediaFromWatchlist,
 			}}>
 			{props.children}
 		</GlobalContext.Provider>

@@ -8,14 +8,6 @@ const ResultCard = ({ result }) => {
 
 	const watchlistDisabled = storedMedia ? true : false;
 
-	const resultTitle = () => {
-		if (result.title) {
-			return result.title;
-		} else {
-			return result.name;
-		}
-	};
-
 	const resultDate = () => {
 		if (result.release_date) {
 			return result.release_date;
@@ -26,7 +18,7 @@ const ResultCard = ({ result }) => {
 		}
 	};
 
-	const title = resultTitle();
+	const title = result.title ? result.title : result.name;
 	const airDate = resultDate();
 	const mediaType = result.media_type;
 

@@ -1,11 +1,18 @@
-import { Action } from "./GlobalState";
+import { Actions } from "./GlobalState";
 
 const AppReducer = (state, action) => {
 	switch (action.type) {
-		case Action.addMediaToWatchlist:
+		case Actions.addMediaToWatchlist:
 			return {
 				...state,
 				watchlist: [action.payload, ...state.watchlist],
+			};
+		case Actions.removeMediaFromWatchlist:
+			return {
+				...state,
+				watchlist: state.watchlist.filter(
+					(media) => media.id !== action.payload
+				),
 			};
 
 		default:
