@@ -2,11 +2,19 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 const ResultCard = ({ result }) => {
-	const { addMediaToWatchlist, watchlist } = useContext(GlobalContext);
+	const { addMediaToWatchlist, addMediaToWatched, watchlist, watched } =
+		useContext(GlobalContext);
 
 	const storedMedia = watchlist.find((media) => media.id === result.id);
+	const storedMediaWatched = watched.find((media) => media.id === result.id);
 
-	const watchlistDisabled = storedMedia ? true : false;
+	const watchlistDisabled = storedMedia
+		? true
+		: storedMediaWatched
+		? true
+		: false;
+
+	const watchedDisabled = storedMediaWatched ? true : false;
 
 	const resultDate = () => {
 		if (result.release_date) {
@@ -51,6 +59,13 @@ const ResultCard = ({ result }) => {
 						className="btn"
 						onClick={() => addMediaToWatchlist(result)}>
 						Add to Watchlist
+					</button>
+
+					<button
+						disabled={watchedDisabled}
+						className="btn"
+						onClick={() => addMediaToWatched(result)}>
+						Add to Watched
 					</button>
 				</div>
 			</div>

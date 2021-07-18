@@ -5,6 +5,9 @@ import AppReducer from "./AppReducer";
 export const Actions = {
 	addMediaToWatchlist: "ADD_MEDIA_TO_WATCHLIST",
 	removeMediaFromWatchlist: "REMOVE_MEDIA_FROM_WATCHLIST",
+	addMediaToWatched: "ADD_MEDIA_TO_WATCHED",
+	moveToWatchlist: "MOVE_TO_WATCHLIST",
+	removeMediaFromWatched: "REMOVE_MEDIA_FROM_WATCHED",
 };
 
 // Initial state
@@ -38,6 +41,18 @@ export const GlobalProvider = (props) => {
 		dispatch({ type: Actions.removeMediaFromWatchlist, payload: id });
 	};
 
+	const addMediaToWatched = (media) => {
+		dispatch({ type: Actions.addMediaToWatched, payload: media });
+	};
+
+	const moveToWatchlist = (media) => {
+		dispatch({ type: Actions.moveToWatchlist, payload: media });
+	};
+
+	const removeMediaFromWatched = (id) => {
+		dispatch({ type: Actions.removeMediaFromWatched, payload: id });
+	};
+
 	return (
 		<GlobalContext.Provider
 			value={{
@@ -45,6 +60,9 @@ export const GlobalProvider = (props) => {
 				watched: state.watched,
 				addMediaToWatchlist,
 				removeMediaFromWatchlist,
+				addMediaToWatched,
+				moveToWatchlist,
+				removeMediaFromWatched,
 			}}>
 			{props.children}
 		</GlobalContext.Provider>
