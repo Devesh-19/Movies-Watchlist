@@ -3,14 +3,15 @@ import MediaControls from "./MediaControls";
 
 const MediaCard = ({ media, section }) => {
 	const title = media.title ? media.title : media.name;
+	const mediaType = media.media_type.toUpperCase();
 
 	return (
-		<div className="media-card">
+		<div className="media-card" title={`${title} - ${mediaType}`}>
 			<div className="overlay"></div>
 
 			{media.poster_path ? (
 				<img
-					src={`https://image.tmdb.org/t/p/w200${media.poster_path}`}
+					src={`https://image.tmdb.org/t/p/w780${media.poster_path}`}
 					alt={`${title} Poster`}
 				/>
 			) : (

@@ -10,6 +10,13 @@ const Watchlist = () => {
 			<div className="container">
 				<div className="header">
 					<h1 className="heading">My Watchlist</h1>
+
+					<span className="count-pill">
+						{watchlist.length}{" "}
+						{watchlist.length === 1
+							? "Movie/TV Show"
+							: "Movies/TV Shows"}
+					</span>
 				</div>
 
 				{watchlist.length ? (
@@ -23,7 +30,7 @@ const Watchlist = () => {
 						))}
 					</div>
 				) : (
-					<h2 className="no-movies">
+					<h2 className="no-media">
 						You're all caught up with your watchlist!
 					</h2>
 				)}

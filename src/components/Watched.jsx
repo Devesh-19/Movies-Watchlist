@@ -10,6 +10,13 @@ const Watched = () => {
 			<div className="container">
 				<div className="header">
 					<h1 className="heading">Watched Movies/TV Shows</h1>
+
+					<span className="count-pill">
+						{watched.length}{" "}
+						{watched.length === 1
+							? "Movie/TV Show"
+							: "Movies/TV Shows"}
+					</span>
 				</div>
 
 				{watched.length ? (
@@ -23,7 +30,7 @@ const Watched = () => {
 						))}
 					</div>
 				) : (
-					<h2 className="no-movies">
+					<h2 className="no-media">
 						There is nothing in your watched list.
 					</h2>
 				)}

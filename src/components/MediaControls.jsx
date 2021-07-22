@@ -16,13 +16,16 @@ const MediaControls = ({ media, section }) => {
 					<button
 						className="ctrl-btn"
 						onClick={() => addMediaToWatched(media)}>
-						<i className="fa-fw far fa-eye" /> Watched
+						<i
+							className="fa-fw far fa-eye"
+							title="Add to Watched"
+						/>
 					</button>
 
 					<button
 						className="ctrl-btn"
 						onClick={() => removeMediaFromWatchlist(media.id)}>
-						<i className="fa-fw fa fa-times" /> Remove
+						<i className="fa-fw fa fa-times" title="Remove" />
 					</button>
 				</>
 			)}
@@ -32,13 +35,16 @@ const MediaControls = ({ media, section }) => {
 					<button
 						className="ctrl-btn"
 						onClick={() => moveToWatchlist(media)}>
-						<i className="fa-fw far fa-eye-slash" /> Watchlist
+						<i
+							className="fa-fw far fa-eye-slash"
+							title="Add to Watchlist"
+						/>
 					</button>
 
 					<button
 						className="ctrl-btn"
 						onClick={() => removeMediaFromWatched(media.id)}>
-						<i className="fa-fw fa fa-times" /> Remove
+						<i className="fa-fw fa fa-times" title="Remove" />
 					</button>
 				</>
 			)}
