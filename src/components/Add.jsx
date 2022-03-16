@@ -49,10 +49,7 @@ const Add = () => {
 								(result) =>
 									(result.media_type === "movie" ||
 										result.media_type === "tv") && (
-										<ResultCard
-											key={result.id}
-											result={result}
-										/>
+										<ResultCard key={result.id} result={result} />
 									)
 							)}
 						</div>
